@@ -22,6 +22,7 @@ export class BarChartComponent implements OnInit {
     this.chart = new Chart("MyChart", {
       type: 'bar', //this denotes tha type of chart
 
+      
       data: {// values on X-Axis
         labels: ['mon', 'tue', 'wed','thu',
 								 'fri', 'sat', 'sun'], 
@@ -30,13 +31,30 @@ export class BarChartComponent implements OnInit {
             label: "spending",
             data: ['300','450', '600', '400', '300',
 								 '460', '573'],
-            backgroundColor: ' hsl(10, 79%, 65%)'
+            backgroundColor: ' hsl(10, 79%, 65%)',
+            borderWidth: 0,
+            borderRadius: 5,
           }
         ]
       },
       options: {
-        aspectRatio:2.10
+    
+                  scales: {
+            y: {
+              display: false,
+            },
+            x: {
+              border: {
+                display: false
+              },
+              grid: {
+                drawOnChartArea: false,
+                drawTicks: false,
+              },
+            },
+          }
       }
+      
       
     });
   }
